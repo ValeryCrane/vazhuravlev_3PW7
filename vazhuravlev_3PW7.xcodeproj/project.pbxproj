@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,13 @@
 		4842B07227E41D0A00E6EAA2 /* MapKitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07127E41D0A00E6EAA2 /* MapKitInteractor.swift */; };
 		4842B07527E41D1800E6EAA2 /* MapKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07427E41D1800E6EAA2 /* MapKitPresenter.swift */; };
 		4842B07927E4256E00E6EAA2 /* MapKitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07827E4256E00E6EAA2 /* MapKitAssembly.swift */; };
+		487C1C4727E4E186001E779F /* YMapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4627E4E186001E779F /* YMapKitViewController.swift */; };
+		487C1C4A27E4E1A3001E779F /* YMapSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4927E4E1A3001E779F /* YMapSearchButton.swift */; };
+		487C1C4D27E4E1AB001E779F /* YMapSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */; };
+		487C1C5027E4E1BB001E779F /* YMapKitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */; };
+		487C1C5327E4E1C5001E779F /* YMapKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */; };
+		487C1C5627E4E1D3001E779F /* YMapKitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */; };
+		91C293ADE59C44A1DA1223B1 /* Pods_vazhuravlev_3PW7.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF36772C17867F50355C1D36 /* Pods_vazhuravlev_3PW7.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,15 @@
 		4842B07127E41D0A00E6EAA2 /* MapKitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitInteractor.swift; sourceTree = "<group>"; };
 		4842B07427E41D1800E6EAA2 /* MapKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitPresenter.swift; sourceTree = "<group>"; };
 		4842B07827E4256E00E6EAA2 /* MapKitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitAssembly.swift; sourceTree = "<group>"; };
+		487C1C4627E4E186001E779F /* YMapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitViewController.swift; sourceTree = "<group>"; };
+		487C1C4927E4E1A3001E779F /* YMapSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapSearchButton.swift; sourceTree = "<group>"; };
+		487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapSearchTextField.swift; sourceTree = "<group>"; };
+		487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitInteractor.swift; sourceTree = "<group>"; };
+		487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitPresenter.swift; sourceTree = "<group>"; };
+		487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitAssembly.swift; sourceTree = "<group>"; };
+		4B0FF66666B2A45C90BDC3CB /* Pods-vazhuravlev_3PW7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vazhuravlev_3PW7.debug.xcconfig"; path = "Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7.debug.xcconfig"; sourceTree = "<group>"; };
+		C8E6AFD9CB24861FB1A73A50 /* Pods-vazhuravlev_3PW7.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vazhuravlev_3PW7.release.xcconfig"; path = "Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7.release.xcconfig"; sourceTree = "<group>"; };
+		FF36772C17867F50355C1D36 /* Pods_vazhuravlev_3PW7.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vazhuravlev_3PW7.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C293ADE59C44A1DA1223B1 /* Pods_vazhuravlev_3PW7.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +71,8 @@
 				4842B05C27E3FBB800E6EAA2 /* README.md */,
 				4842B03A27E3F4F400E6EAA2 /* vazhuravlev_3PW7 */,
 				4842B03927E3F4F400E6EAA2 /* Products */,
+				630E8EEBCC2AE115D2B4A20A /* Pods */,
+				5891D3E64284ABF72DF06DC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +91,7 @@
 				4842B03B27E3F4F400E6EAA2 /* AppDelegate.swift */,
 				4842B03D27E3F4F400E6EAA2 /* SceneDelegate.swift */,
 				4842B05227E3F5B900E6EAA2 /* MapKitScene */,
+				487C1C4527E4D700001E779F /* YMapKitScene */,
 				4842B04427E3F4F500E6EAA2 /* Assets.xcassets */,
 				4842B04627E3F4F500E6EAA2 /* LaunchScreen.storyboard */,
 				4842B04927E3F4F500E6EAA2 /* Info.plist */,
@@ -92,6 +112,36 @@
 			path = MapKitScene;
 			sourceTree = "<group>";
 		};
+		487C1C4527E4D700001E779F /* YMapKitScene */ = {
+			isa = PBXGroup;
+			children = (
+				487C1C4927E4E1A3001E779F /* YMapSearchButton.swift */,
+				487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */,
+				487C1C4627E4E186001E779F /* YMapKitViewController.swift */,
+				487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */,
+				487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */,
+				487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */,
+			);
+			path = YMapKitScene;
+			sourceTree = "<group>";
+		};
+		5891D3E64284ABF72DF06DC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF36772C17867F50355C1D36 /* Pods_vazhuravlev_3PW7.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		630E8EEBCC2AE115D2B4A20A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B0FF66666B2A45C90BDC3CB /* Pods-vazhuravlev_3PW7.debug.xcconfig */,
+				C8E6AFD9CB24861FB1A73A50 /* Pods-vazhuravlev_3PW7.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4842B04C27E3F4F500E6EAA2 /* Build configuration list for PBXNativeTarget "vazhuravlev_3PW7" */;
 			buildPhases = (
+				DDC0DBFB0ECC6A5F9A9F93CD /* [CP] Check Pods Manifest.lock */,
 				4842B03427E3F4F400E6EAA2 /* Sources */,
 				4842B03527E3F4F400E6EAA2 /* Frameworks */,
 				4842B03627E3F4F400E6EAA2 /* Resources */,
+				2C7C3094B964F1F9EBD11BA5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +208,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C7C3094B964F1F9EBD11BA5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDC0DBFB0ECC6A5F9A9F93CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-vazhuravlev_3PW7-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4842B03427E3F4F400E6EAA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -163,6 +257,9 @@
 			files = (
 				4842B07927E4256E00E6EAA2 /* MapKitAssembly.swift in Sources */,
 				4842B06727E40BB200E6EAA2 /* UIView_Pin.swift in Sources */,
+				487C1C5327E4E1C5001E779F /* YMapKitPresenter.swift in Sources */,
+				487C1C4727E4E186001E779F /* YMapKitViewController.swift in Sources */,
+				487C1C5027E4E1BB001E779F /* YMapKitInteractor.swift in Sources */,
 				4842B07227E41D0A00E6EAA2 /* MapKitInteractor.swift in Sources */,
 				4842B05F27E4018200E6EAA2 /* MapSearchButton.swift in Sources */,
 				4842B06427E40AFC00E6EAA2 /* MapSearchTextField.swift in Sources */,
@@ -170,6 +267,9 @@
 				4842B03C27E3F4F400E6EAA2 /* AppDelegate.swift in Sources */,
 				4842B07527E41D1800E6EAA2 /* MapKitPresenter.swift in Sources */,
 				4842B03E27E3F4F400E6EAA2 /* SceneDelegate.swift in Sources */,
+				487C1C4D27E4E1AB001E779F /* YMapSearchTextField.swift in Sources */,
+				487C1C4A27E4E1A3001E779F /* YMapSearchButton.swift in Sources */,
+				487C1C5627E4E1D3001E779F /* YMapKitAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +405,7 @@
 		};
 		4842B04D27E3F4F500E6EAA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B0FF66666B2A45C90BDC3CB /* Pods-vazhuravlev_3PW7.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,6 +425,7 @@
 		};
 		4842B04E27E3F4F500E6EAA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8E6AFD9CB24861FB1A73A50 /* Pods-vazhuravlev_3PW7.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
