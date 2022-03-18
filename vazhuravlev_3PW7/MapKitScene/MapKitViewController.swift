@@ -62,6 +62,12 @@ class MapKitViewController: UIViewController {
         buttonStack.addArrangedSubview(clearButton)
         goButton.pinHeight(to: buttonStack.heightAnchor)
         clearButton.pinHeight(to: buttonStack.heightAnchor)
+        
+        goButton.addTarget(self, action: #selector(goButtonWasPressed), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearButtonWasPressed), for: .touchUpInside)
+        
+        goButton.isEnabled = false
+        clearButton.isEnabled = false
     }
     
     private func layoutTextFields() {
@@ -99,9 +105,27 @@ class MapKitViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
+    // MARK: - button actions
+    @objc func clearButtonWasPressed() {
+        startLocation.text = ""
+        endLocation.text = ""
+        goButton.isEnabled = false
+        clearButton.isEnabled = false
+        clearMap()
+    }
+    
+    @objc private func goButtonWasPressed() {
+        print("Go Button Function")
+    }
+    
+    // MARK: - other functions
     @objc private func dismissAnyKeyboard() {
         startLocation.resignFirstResponder()
         endLocation.resignFirstResponder()
+    }
+    
+    private func clearMap() {
+        print("Clear Map Function")
     }
 }
 
@@ -110,6 +134,23 @@ class MapKitViewController: UIViewController {
 extension MapKitViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        if textField == endLocation &&
+            !(startLocation.text ?? "").isEmpty && !(endLocation.text ?? "").isEmpty {
+            goButtonWasPressed()
+        }
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !(startLocation.text ?? "").isEmpty && !(endLocation.text ?? "").isEmpty {
+            goButton.isEnabled = true
+            clearButton.isEnabled = true
+        } else if !(startLocation.text ?? "").isEmpty || !(endLocation.text ?? "").isEmpty {
+            goButton.isEnabled = false
+            clearButton.isEnabled = true
+        } else {
+            goButton.isEnabled = false
+            clearButton.isEnabled = false
+        }
     }
 }

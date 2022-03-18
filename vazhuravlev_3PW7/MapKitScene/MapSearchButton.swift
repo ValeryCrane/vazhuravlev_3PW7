@@ -13,6 +13,7 @@ class MapSearchButton: UIButton {
     init(title: String, backgroundColor: UIColor) {
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
+        self.setTitleColor(.gray, for: .disabled)
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = 8
     }
