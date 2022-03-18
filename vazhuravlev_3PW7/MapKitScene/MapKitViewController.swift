@@ -9,7 +9,14 @@ import UIKit
 import CoreLocation
 import MapKit
 
+protocol MapKitDisplayLogic: AnyObject {
+    func displayRoute(route: MKPolyline)        // Displays given route on the map.
+}
+
 class MapKitViewController: UIViewController {
+    public var interactor: MapKitBusinessLogic!
+    
+    // MARK: - subviews
     private let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.layer.masksToBounds = true
@@ -22,6 +29,8 @@ class MapKitViewController: UIViewController {
         mapView.showsUserLocation = true
         return mapView
     }()
+    
+    private var routes: [MKOverlay] = []
     
     private let goButton = MapSearchButton(title: "Go", backgroundColor: .systemBlue)
     private let clearButton = MapSearchButton(title: "Clear", backgroundColor: .systemGray2)
@@ -43,6 +52,7 @@ class MapKitViewController: UIViewController {
     private func layoutUI() {
         view.addSubview(mapView)
         mapView.pin(to: view, .top, .right, .bottom, .left)
+        mapView.delegate = self
         layoutButtons()
         layoutTextFields()
     }
@@ -115,7 +125,13 @@ class MapKitViewController: UIViewController {
     }
     
     @objc private func goButtonWasPressed() {
-        print("Go Button Function")
+        if let startLocation = startLocation.text, let endLocation = endLocation.text {
+            interactor.fetchRoute(startAddress: startLocation, endAddress: endLocation)
+        }
+        startLocation.text = ""
+        endLocation.text = ""
+        goButton.isEnabled = false
+        clearButton.isEnabled = false
     }
     
     // MARK: - other functions
@@ -125,7 +141,8 @@ class MapKitViewController: UIViewController {
     }
     
     private func clearMap() {
-        print("Clear Map Function")
+        mapView.removeOverlays(routes)
+        routes = []
     }
 }
 
@@ -152,5 +169,25 @@ extension MapKitViewController: UITextFieldDelegate {
             goButton.isEnabled = false
             clearButton.isEnabled = false
         }
+    }
+}
+
+
+// MARK: - MKMapViewDelegate implementation
+extension MapKitViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = .blue
+        renderer.lineWidth = 4
+        return renderer
+    }
+}
+
+
+// MARK: - MapKitDisplayLogic implementation
+extension MapKitViewController: MapKitDisplayLogic {
+    func displayRoute(route: MKPolyline) {
+        mapView.addOverlay(route, level: .aboveRoads)
+        routes.append(route)
     }
 }
