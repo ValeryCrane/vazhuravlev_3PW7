@@ -12,7 +12,7 @@ import UIKit
 class YMapSearchTextField: UITextField {
     init(placeholder: String) {
         super.init(frame: .zero)
-        self.backgroundColor = .systemGray5
+        self.backgroundColor = .systemGray6
         self.textColor = .black
         self.placeholder = placeholder
         self.layer.cornerRadius = 8

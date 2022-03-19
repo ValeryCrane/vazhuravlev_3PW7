@@ -11,7 +11,7 @@ import YandexMapsMobile
 
 protocol YMapKitBusinessLogic: AnyObject {
     // Fetches route for addresses and passes it to presenter.
-    func fetchRoute(startAddress: String, endAddress: String)
+    func fetchRoute(startAddress: String, endAddress: String, requestId: UUID)
 }
 
 class YMapKitInteractor {
@@ -36,15 +36,16 @@ class YMapKitInteractor {
     }
     
     // Builds path from points
-    private func buildRoute(start: YMKPoint, finish: YMKPoint) {
+    private func buildRoute(start: YMKPoint, finish: YMKPoint, requestId: UUID) {
         let requestPoints: [YMKRequestPoint] = [
             YMKRequestPoint(point: start, type: .waypoint, pointContext: nil),
             YMKRequestPoint(point: finish, type: .waypoint, pointContext: nil)
         ]
         
-        let responseHandler = {(routes: [YMKDrivingRoute]?, error: Error?) -> Void in
+        let responseHandler = {[weak self] (routes: [YMKDrivingRoute]?, error: Error?) -> Void in
             if let route = routes?.first {
-                self.presenter.presentRoute(route: route.geometry)
+                let distance = route.metadata.weight.distance.value
+                self?.presenter.presentRoute(route: route.geometry, distance: distance, requestId: requestId)
             }
         }
         
@@ -64,7 +65,7 @@ class YMapKitInteractor {
 
 // MARK: - MapKitBusinessLogic implementation
 extension YMapKitInteractor: YMapKitBusinessLogic {
-    func fetchRoute(startAddress: String, endAddress: String) {
+    func fetchRoute(startAddress: String, endAddress: String, requestId: UUID) {
         guard startAddress != endAddress else { return }
          
         var coordinates: [YMKPoint] = []
@@ -86,8 +87,8 @@ extension YMapKitInteractor: YMapKitBusinessLogic {
             group.leave()
         }
         
-        group.notify(queue: .global()) {
-            self.buildRoute(start: coordinates[0], finish: coordinates[1])
+        group.notify(queue: .global()) { [weak self] in
+            self?.buildRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)
         }
     }
 }
