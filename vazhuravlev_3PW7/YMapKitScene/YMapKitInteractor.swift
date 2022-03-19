@@ -45,7 +45,7 @@ class YMapKitInteractor {
         let responseHandler = {[weak self] (routes: [YMKDrivingRoute]?, error: Error?) -> Void in
             if let route = routes?.first {
                 let distance = route.metadata.weight.distance.value
-                self?.presenter.presentRoute(route: route.geometry, distance: distance, requestId: requestId)
+                self?.presenter.presentRoute(route: route, distance: distance, requestId: requestId)
             }
         }
         

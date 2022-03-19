@@ -9,3 +9,5 @@
 - When two cities are inputed to textfields pressing go button creates a path between points A and B on the map. Pressing clear button clears the path as well. Pressing return button on the keyboard calls go button action.
 
 - Apple MapKit is replaced with yandex maps.
+
+- Showing trip length in meters

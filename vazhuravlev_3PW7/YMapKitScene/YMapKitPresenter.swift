@@ -10,7 +10,7 @@ import MapKit
 import YandexMapsMobile
 
 protocol YMapKitPresentationLogic: AnyObject {
-    func presentRoute(route: YMKPolyline, distance: Double, requestId: UUID)
+    func presentRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID)
 }
 
 class YMapKitPresenter {
@@ -67,9 +67,9 @@ class YMapKitPresenter {
 
 // MARK: - MapKitPresentationLogic implementation
 extension YMapKitPresenter: YMapKitPresentationLogic {
-    func presentRoute(route: YMKPolyline, distance: Double, requestId: UUID) {
-        guard let source = route.points.first,
-              let destination = route.points.last else { return }
+    func presentRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID) {
+        guard let source = route.geometry.points.first,
+              let destination = route.geometry.points.last else { return }
         
         let distanceText = presentDistance(distance: distance)
         let boundingBox = getBoundingBox(source: source, destination: destination)

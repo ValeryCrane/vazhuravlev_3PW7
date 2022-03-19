@@ -11,7 +11,7 @@ import YandexMapsMobile
 
 protocol YMapKitDisplayLogic: AnyObject {
     // Displays given route on the map.
-    func displayRoute(route: YMKPolyline, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
+    func displayRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
 }
 
 class YMapKitViewController: UIViewController {
@@ -88,18 +88,19 @@ class YMapKitViewController: UIViewController {
 
 // MARK: - MapKitDisplayLogic implementation
 extension YMapKitViewController: YMapKitDisplayLogic {
-    func displayRoute(route: YMKPolyline, boundingBox: YMKBoundingBox, distance: String, requestId: UUID) {
-        if requestId == currentRouteId {
-            mapView.mapWindow.map.mapObjects.addPolyline(with: route)
-            var cameraPosition = mapView.mapWindow.map.cameraPosition(with: boundingBox)
-            cameraPosition = YMKCameraPosition(target: cameraPosition.target,
-                                               zoom: cameraPosition.zoom - 0.8,
-                                               azimuth: cameraPosition.azimuth,
-                                               tilt: cameraPosition.tilt)
-            mapView.mapWindow.map.move(with: cameraPosition, animationType:
-                                        YMKAnimation(type: YMKAnimationType.smooth, duration: 1))
-            toolBar?.displayDistance(distance: distance)
-        }
+    func displayRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID) {
+        guard requestId == currentRouteId else { return }
+        let jamsPolyline = mapView.mapWindow.map.mapObjects.addColoredPolyline()
+        YMKRouteHelper.updatePolyline(withPolyline: jamsPolyline, route: route,
+                                      style: YMKRouteHelper.createDefaultJamStyle())
+        var cameraPosition = mapView.mapWindow.map.cameraPosition(with: boundingBox)
+        cameraPosition = YMKCameraPosition(target: cameraPosition.target,
+                                            zoom: cameraPosition.zoom - 0.8,
+                                            azimuth: cameraPosition.azimuth,
+                                            tilt: cameraPosition.tilt)
+        mapView.mapWindow.map.move(with: cameraPosition, animationType:
+                                    YMKAnimation(type: YMKAnimationType.smooth, duration: 1))
+        toolBar?.displayDistance(distance: distance)
     }
 }
 
