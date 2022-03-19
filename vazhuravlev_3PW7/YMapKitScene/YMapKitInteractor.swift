@@ -11,12 +11,14 @@ import YandexMapsMobile
 
 protocol YMapKitBusinessLogic: AnyObject {
     // Fetches route for addresses and passes it to presenter.
-    func fetchRoute(startAddress: String, endAddress: String, requestId: UUID)
+    func fetchRoute(startAddress: String, endAddress: String, vehicle: VehicleType, requestId: UUID)
 }
 
 class YMapKitInteractor {
     public var presenter: YMapKitPresentationLogic!
     private var drivingSession: YMKDrivingSession?
+    private var bicycleSession: YMKBicycleSession?
+    private var pedestrianSession: YMKMasstransitSession?
     
     // Fetches coordinate from address and passes it to coordinates array.
     private func getYMKPointFrom(
@@ -35,8 +37,8 @@ class YMapKitInteractor {
         }
     }
     
-    // Builds path from points
-    private func buildRoute(start: YMKPoint, finish: YMKPoint, requestId: UUID) {
+    // Builds car path from points
+    private func buildCarRoute(start: YMKPoint, finish: YMKPoint, requestId: UUID) {
         let requestPoints: [YMKRequestPoint] = [
             YMKRequestPoint(point: start, type: .waypoint, pointContext: nil),
             YMKRequestPoint(point: finish, type: .waypoint, pointContext: nil)
@@ -45,7 +47,7 @@ class YMapKitInteractor {
         let responseHandler = {[weak self] (routes: [YMKDrivingRoute]?, error: Error?) -> Void in
             if let route = routes?.first {
                 let distance = route.metadata.weight.distance.value
-                self?.presenter.presentRoute(route: route, distance: distance, requestId: requestId)
+                self?.presenter.presentDrivingRoute(route: route, distance: distance, requestId: requestId)
             }
         }
         
@@ -59,13 +61,58 @@ class YMapKitInteractor {
             )
         }
     }
-
+    
+    // Builds  path from points
+    private func buildBicycleRoute(start: YMKPoint, finish: YMKPoint, requestId: UUID) {
+        let requestPoints: [YMKRequestPoint] = [
+            YMKRequestPoint(point: start, type: .waypoint, pointContext: nil),
+            YMKRequestPoint(point: finish, type: .waypoint, pointContext: nil)
+        ]
+        
+        let responseHandler = {[weak self] (routes: [YMKBicycleRoute]?, error: Error?) -> Void in
+            if let route = routes?.first {
+                let distance = route.weight.distance.value
+                self?.presenter.presentBicycleRoute(route: route, distance: distance, requestId: requestId)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            let bicycleRouter = YMKTransport.sharedInstance().createBicycleRouter()
+            self.bicycleSession = bicycleRouter.requestRoutes(
+                with: requestPoints,
+                routeListener: responseHandler
+            )
+        }
+    }
+    
+    
+    private func buildPedestrianRoute(start: YMKPoint, finish: YMKPoint, requestId: UUID) {
+        let requestPoints: [YMKRequestPoint] = [
+            YMKRequestPoint(point: start, type: .waypoint, pointContext: nil),
+            YMKRequestPoint(point: finish, type: .waypoint, pointContext: nil)
+        ]
+        
+        let responseHandler = {[weak self] (routes: [YMKMasstransitRoute]?, error: Error?) -> Void in
+            if let route = routes?.first {
+                let distance = route.metadata.weight.walkingDistance.value
+                self?.presenter.presentPedestrianRoute(route: route, distance: distance, requestId: requestId)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            let pedestrianRouter = YMKTransport.sharedInstance().createPedestrianRouter()
+            self.pedestrianSession = pedestrianRouter.requestRoutes(
+                with: requestPoints,
+                timeOptions: YMKTimeOptions(),
+                routeHandler: responseHandler)
+        }
+    }
 }
 
 
 // MARK: - MapKitBusinessLogic implementation
 extension YMapKitInteractor: YMapKitBusinessLogic {
-    func fetchRoute(startAddress: String, endAddress: String, requestId: UUID) {
+    func fetchRoute(startAddress: String, endAddress: String, vehicle: VehicleType, requestId: UUID) {
         guard startAddress != endAddress else { return }
          
         var coordinates: [YMKPoint] = []
@@ -88,7 +135,14 @@ extension YMapKitInteractor: YMapKitBusinessLogic {
         }
         
         group.notify(queue: .global()) { [weak self] in
-            self?.buildRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)
+            switch vehicle {
+            case .Car:
+                self?.buildCarRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)
+            case .Bicycle:
+                self?.buildBicycleRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)
+            case .Pedestrian:
+                self?.buildPedestrianRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)
+            }
         }
     }
 }

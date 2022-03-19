@@ -11,7 +11,9 @@ import YandexMapsMobile
 
 protocol YMapKitDisplayLogic: AnyObject {
     // Displays given route on the map.
-    func displayRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
+    func displayDrivingRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
+    func displayBicycleRoute(route: YMKBicycleRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
+    func displayPedestrianRoute(route: YMKMasstransitRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID)
 }
 
 class YMapKitViewController: UIViewController {
@@ -82,17 +84,8 @@ class YMapKitViewController: UIViewController {
     private func clearMap() {
         mapView.mapWindow.map.mapObjects.clear()
     }
-}
-
-
-
-// MARK: - MapKitDisplayLogic implementation
-extension YMapKitViewController: YMapKitDisplayLogic {
-    func displayRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox, distance: String, requestId: UUID) {
-        guard requestId == currentRouteId else { return }
-        let jamsPolyline = mapView.mapWindow.map.mapObjects.addColoredPolyline()
-        YMKRouteHelper.updatePolyline(withPolyline: jamsPolyline, route: route,
-                                      style: YMKRouteHelper.createDefaultJamStyle())
+    
+    private func moveMapTo(boundingBox: YMKBoundingBox) {
         var cameraPosition = mapView.mapWindow.map.cameraPosition(with: boundingBox)
         cameraPosition = YMKCameraPosition(target: cameraPosition.target,
                                             zoom: cameraPosition.zoom - 0.8,
@@ -100,6 +93,36 @@ extension YMapKitViewController: YMapKitDisplayLogic {
                                             tilt: cameraPosition.tilt)
         mapView.mapWindow.map.move(with: cameraPosition, animationType:
                                     YMKAnimation(type: YMKAnimationType.smooth, duration: 1))
+    }
+}
+
+
+
+// MARK: - MapKitDisplayLogic implementation
+extension YMapKitViewController: YMapKitDisplayLogic {
+    func displayDrivingRoute(route: YMKDrivingRoute, boundingBox: YMKBoundingBox,
+                             distance: String, requestId: UUID) {
+        guard requestId == currentRouteId else { return }
+        let jamsPolyline = mapView.mapWindow.map.mapObjects.addColoredPolyline()
+        YMKRouteHelper.updatePolyline(withPolyline: jamsPolyline, route: route,
+                                      style: YMKRouteHelper.createDefaultJamStyle())
+        moveMapTo(boundingBox: boundingBox)
+        toolBar?.displayDistance(distance: distance)
+    }
+    
+    func displayBicycleRoute(route: YMKBicycleRoute, boundingBox: YMKBoundingBox,
+                             distance: String, requestId: UUID) {
+        guard requestId == currentRouteId else { return }
+        mapView.mapWindow.map.mapObjects.addPolyline(with: route.geometry)
+        moveMapTo(boundingBox: boundingBox)
+        toolBar?.displayDistance(distance: distance)
+    }
+    
+    func displayPedestrianRoute(route: YMKMasstransitRoute, boundingBox: YMKBoundingBox,
+                                distance: String, requestId: UUID) {
+        guard requestId == currentRouteId else { return }
+        mapView.mapWindow.map.mapObjects.addPolyline(with: route.geometry)
+        moveMapTo(boundingBox: boundingBox)
         toolBar?.displayDistance(distance: distance)
     }
 }
@@ -109,7 +132,8 @@ extension YMapKitViewController: YMapKitToolBarDisplayLogic {
         clearMap()
         let currentRouteId = UUID()
         self.currentRouteId = currentRouteId
-        self.interactor.fetchRoute(startAddress: source, endAddress: destination, requestId: currentRouteId)
+        self.interactor.fetchRoute(startAddress: source, endAddress: destination,
+                                   vehicle: vehicle, requestId: currentRouteId)
     }
     
     func clearQuery() {

@@ -52,20 +52,18 @@ class YMapKitRouteViewController: UIViewController {
         
         let transportChoice = UISegmentedControl(items: images)
         transportChoice.selectedSegmentIndex = 0
-        transportChoice.selectedSegmentTintColor = .init(red: 0.6, green: 0.6, blue: 1, alpha: 1)
         wrapper.addSubview(transportChoice)
         transportChoice.pinTop(to: wrapper.topAnchor, 16)
         transportChoice.pinLeft(to: wrapper.leadingAnchor, 32)
         transportChoice.pinRight(to: wrapper.trailingAnchor, 32)
         transportChoice.setHeight(to: 48)
-        transportChoice.isEnabled = false                           // Transport choice is not implemented yet.
         self.transportChoice = transportChoice
     }
     
     private func layoutDistanceLabel(wrapper: UIView) {
         guard let transportChoice = self.transportChoice else { return }
         let distanceLabel = UILabel()
-        distanceLabel.text = "Distance isn't available:("
+        distanceLabel.text = ":("
         distanceLabel.font = .systemFont(ofSize: 32, weight: .bold)
         distanceLabel.textAlignment = .right
         wrapper.addSubview(distanceLabel)

@@ -10,7 +10,9 @@ import MapKit
 import YandexMapsMobile
 
 protocol YMapKitPresentationLogic: AnyObject {
-    func presentRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID)
+    func presentDrivingRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID)
+    func presentBicycleRoute(route: YMKBicycleRoute, distance: Double, requestId: UUID)
+    func presentPedestrianRoute(route: YMKMasstransitRoute, distance: Double, requestId: UUID)
 }
 
 class YMapKitPresenter {
@@ -67,7 +69,7 @@ class YMapKitPresenter {
 
 // MARK: - MapKitPresentationLogic implementation
 extension YMapKitPresenter: YMapKitPresentationLogic {
-    func presentRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID) {
+    func presentDrivingRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID) {
         guard let source = route.geometry.points.first,
               let destination = route.geometry.points.last else { return }
         
@@ -75,7 +77,31 @@ extension YMapKitPresenter: YMapKitPresentationLogic {
         let boundingBox = getBoundingBox(source: source, destination: destination)
         
         DispatchQueue.main.async { [weak self] in
-            self?.view.displayRoute(route: route, boundingBox: boundingBox, distance: distanceText, requestId: requestId)
+            self?.view.displayDrivingRoute(route: route, boundingBox: boundingBox, distance: distanceText, requestId: requestId)
+        }
+    }
+    
+    func presentBicycleRoute(route: YMKBicycleRoute, distance: Double, requestId: UUID) {
+        guard let source = route.geometry.points.first,
+              let destination = route.geometry.points.last else { return }
+        
+        let distanceText = presentDistance(distance: distance)
+        let boundingBox = getBoundingBox(source: source, destination: destination)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.view.displayBicycleRoute(route: route, boundingBox: boundingBox, distance: distanceText, requestId: requestId)
+        }
+    }
+    
+    func presentPedestrianRoute(route: YMKMasstransitRoute, distance: Double, requestId: UUID) {
+        guard let source = route.geometry.points.first,
+              let destination = route.geometry.points.last else { return }
+        
+        let distanceText = presentDistance(distance: distance)
+        let boundingBox = getBoundingBox(source: source, destination: destination)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.view.displayPedestrianRoute(route: route, boundingBox: boundingBox, distance: distanceText, requestId: requestId)
         }
     }
 }
