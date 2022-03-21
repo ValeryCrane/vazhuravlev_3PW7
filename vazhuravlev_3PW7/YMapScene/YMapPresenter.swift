@@ -1,5 +1,5 @@
 //
-//  YMapKitPresenter.swift
+//  YMapPresenter.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 18.03.2022.
@@ -9,14 +9,14 @@ import Foundation
 import MapKit
 import YandexMapsMobile
 
-protocol YMapKitPresentationLogic: AnyObject {
+protocol YMapPresentationLogic: AnyObject {
     func presentDrivingRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID)
     func presentBicycleRoute(route: YMKBicycleRoute, distance: Double, requestId: UUID)
     func presentPedestrianRoute(route: YMKMasstransitRoute, distance: Double, requestId: UUID)
 }
 
-class YMapKitPresenter {
-    public weak var view: YMapKitDisplayLogic!
+class YMapPresenter {
+    public weak var view: YMapDisplayLogic!
     
     // Presents distance as string.
     private func presentDistance(distance: Double) -> String {
@@ -67,8 +67,8 @@ class YMapKitPresenter {
 }
 
 
-// MARK: - MapKitPresentationLogic implementation
-extension YMapKitPresenter: YMapKitPresentationLogic {
+// MARK: - YMapPresentationLogic implementation
+extension YMapPresenter: YMapPresentationLogic {
     func presentDrivingRoute(route: YMKDrivingRoute, distance: Double, requestId: UUID) {
         guard let source = route.geometry.points.first,
               let destination = route.geometry.points.last else { return }

@@ -18,15 +18,15 @@
 		4842B07227E41D0A00E6EAA2 /* MapKitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07127E41D0A00E6EAA2 /* MapKitInteractor.swift */; };
 		4842B07527E41D1800E6EAA2 /* MapKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07427E41D1800E6EAA2 /* MapKitPresenter.swift */; };
 		4842B07927E4256E00E6EAA2 /* MapKitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842B07827E4256E00E6EAA2 /* MapKitAssembly.swift */; };
-		487C1C4727E4E186001E779F /* YMapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4627E4E186001E779F /* YMapKitViewController.swift */; };
+		487C1C4727E4E186001E779F /* YMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4627E4E186001E779F /* YMapViewController.swift */; };
 		487C1C4D27E4E1AB001E779F /* YMapSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */; };
-		487C1C5027E4E1BB001E779F /* YMapKitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */; };
-		487C1C5327E4E1C5001E779F /* YMapKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */; };
-		487C1C5627E4E1D3001E779F /* YMapKitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */; };
-		487C1C6827E51CC2001E779F /* YMapKitSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C6727E51CC2001E779F /* YMapKitSearchViewController.swift */; };
+		487C1C5027E4E1BB001E779F /* YMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C4F27E4E1BB001E779F /* YMapInteractor.swift */; };
+		487C1C5327E4E1C5001E779F /* YMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5227E4E1C5001E779F /* YMapPresenter.swift */; };
+		487C1C5627E4E1D3001E779F /* YMapAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C5527E4E1D3001E779F /* YMapAssembly.swift */; };
+		487C1C6827E51CC2001E779F /* YMapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C6727E51CC2001E779F /* YMapSearchViewController.swift */; };
 		487C1C6C27E51D51001E779F /* YMapToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C6B27E51D51001E779F /* YMapToolbarButton.swift */; };
-		487C1C7127E5244E001E779F /* YMapKitRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C7027E5244E001E779F /* YMapKitRouteViewController.swift */; };
-		487C1C7527E52A67001E779F /* YMapKitToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C7427E52A67001E779F /* YMapKitToolBar.swift */; };
+		487C1C7127E5244E001E779F /* YMapRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C7027E5244E001E779F /* YMapRouteViewController.swift */; };
+		487C1C7527E52A67001E779F /* YMapToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C7427E52A67001E779F /* YMapToolBar.swift */; };
 		487C1C7927E5D87D001E779F /* VehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C1C7827E5D87D001E779F /* VehicleType.swift */; };
 		91C293ADE59C44A1DA1223B1 /* Pods_vazhuravlev_3PW7.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF36772C17867F50355C1D36 /* Pods_vazhuravlev_3PW7.framework */; };
 /* End PBXBuildFile section */
@@ -46,15 +46,15 @@
 		4842B07127E41D0A00E6EAA2 /* MapKitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitInteractor.swift; sourceTree = "<group>"; };
 		4842B07427E41D1800E6EAA2 /* MapKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitPresenter.swift; sourceTree = "<group>"; };
 		4842B07827E4256E00E6EAA2 /* MapKitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitAssembly.swift; sourceTree = "<group>"; };
-		487C1C4627E4E186001E779F /* YMapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitViewController.swift; sourceTree = "<group>"; };
+		487C1C4627E4E186001E779F /* YMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapViewController.swift; sourceTree = "<group>"; };
 		487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapSearchTextField.swift; sourceTree = "<group>"; };
-		487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitInteractor.swift; sourceTree = "<group>"; };
-		487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitPresenter.swift; sourceTree = "<group>"; };
-		487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitAssembly.swift; sourceTree = "<group>"; };
-		487C1C6727E51CC2001E779F /* YMapKitSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitSearchViewController.swift; sourceTree = "<group>"; };
+		487C1C4F27E4E1BB001E779F /* YMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapInteractor.swift; sourceTree = "<group>"; };
+		487C1C5227E4E1C5001E779F /* YMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapPresenter.swift; sourceTree = "<group>"; };
+		487C1C5527E4E1D3001E779F /* YMapAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapAssembly.swift; sourceTree = "<group>"; };
+		487C1C6727E51CC2001E779F /* YMapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapSearchViewController.swift; sourceTree = "<group>"; };
 		487C1C6B27E51D51001E779F /* YMapToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapToolbarButton.swift; sourceTree = "<group>"; };
-		487C1C7027E5244E001E779F /* YMapKitRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitRouteViewController.swift; sourceTree = "<group>"; };
-		487C1C7427E52A67001E779F /* YMapKitToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapKitToolBar.swift; sourceTree = "<group>"; };
+		487C1C7027E5244E001E779F /* YMapRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapRouteViewController.swift; sourceTree = "<group>"; };
+		487C1C7427E52A67001E779F /* YMapToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMapToolBar.swift; sourceTree = "<group>"; };
 		487C1C7827E5D87D001E779F /* VehicleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleType.swift; sourceTree = "<group>"; };
 		4B0FF66666B2A45C90BDC3CB /* Pods-vazhuravlev_3PW7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vazhuravlev_3PW7.debug.xcconfig"; path = "Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7.debug.xcconfig"; sourceTree = "<group>"; };
 		C8E6AFD9CB24861FB1A73A50 /* Pods-vazhuravlev_3PW7.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vazhuravlev_3PW7.release.xcconfig"; path = "Target Support Files/Pods-vazhuravlev_3PW7/Pods-vazhuravlev_3PW7.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				4842B03D27E3F4F400E6EAA2 /* SceneDelegate.swift */,
 				487C1C7827E5D87D001E779F /* VehicleType.swift */,
 				4842B05227E3F5B900E6EAA2 /* MapKitScene */,
-				487C1C4527E4D700001E779F /* YMapKitScene */,
+				487C1C4527E4D700001E779F /* YMapScene */,
 				4842B04427E3F4F500E6EAA2 /* Assets.xcassets */,
 				4842B04627E3F4F500E6EAA2 /* LaunchScreen.storyboard */,
 				4842B04927E3F4F500E6EAA2 /* Info.plist */,
@@ -121,28 +121,28 @@
 			path = MapKitScene;
 			sourceTree = "<group>";
 		};
-		487C1C4527E4D700001E779F /* YMapKitScene */ = {
+		487C1C4527E4D700001E779F /* YMapScene */ = {
 			isa = PBXGroup;
 			children = (
-				487C1C6527E51C5C001E779F /* YMapKitToolbar */,
-				487C1C4627E4E186001E779F /* YMapKitViewController.swift */,
-				487C1C4F27E4E1BB001E779F /* YMapKitInteractor.swift */,
-				487C1C5227E4E1C5001E779F /* YMapKitPresenter.swift */,
-				487C1C5527E4E1D3001E779F /* YMapKitAssembly.swift */,
+				487C1C6527E51C5C001E779F /* YMapToolbar */,
+				487C1C4627E4E186001E779F /* YMapViewController.swift */,
+				487C1C4F27E4E1BB001E779F /* YMapInteractor.swift */,
+				487C1C5227E4E1C5001E779F /* YMapPresenter.swift */,
+				487C1C5527E4E1D3001E779F /* YMapAssembly.swift */,
 			);
-			path = YMapKitScene;
+			path = YMapScene;
 			sourceTree = "<group>";
 		};
-		487C1C6527E51C5C001E779F /* YMapKitToolbar */ = {
+		487C1C6527E51C5C001E779F /* YMapToolbar */ = {
 			isa = PBXGroup;
 			children = (
 				487C1C6B27E51D51001E779F /* YMapToolbarButton.swift */,
 				487C1C4C27E4E1AB001E779F /* YMapSearchTextField.swift */,
-				487C1C7427E52A67001E779F /* YMapKitToolBar.swift */,
-				487C1C6727E51CC2001E779F /* YMapKitSearchViewController.swift */,
-				487C1C7027E5244E001E779F /* YMapKitRouteViewController.swift */,
+				487C1C7427E52A67001E779F /* YMapToolBar.swift */,
+				487C1C6727E51CC2001E779F /* YMapSearchViewController.swift */,
+				487C1C7027E5244E001E779F /* YMapRouteViewController.swift */,
 			);
-			path = YMapKitToolbar;
+			path = YMapToolbar;
 			sourceTree = "<group>";
 		};
 		5891D3E64284ABF72DF06DC4 /* Frameworks */ = {
@@ -275,25 +275,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487C1C6827E51CC2001E779F /* YMapKitSearchViewController.swift in Sources */,
+				487C1C6827E51CC2001E779F /* YMapSearchViewController.swift in Sources */,
 				4842B07927E4256E00E6EAA2 /* MapKitAssembly.swift in Sources */,
 				4842B06727E40BB200E6EAA2 /* UIView_Pin.swift in Sources */,
-				487C1C5327E4E1C5001E779F /* YMapKitPresenter.swift in Sources */,
-				487C1C4727E4E186001E779F /* YMapKitViewController.swift in Sources */,
-				487C1C5027E4E1BB001E779F /* YMapKitInteractor.swift in Sources */,
+				487C1C5327E4E1C5001E779F /* YMapPresenter.swift in Sources */,
+				487C1C4727E4E186001E779F /* YMapViewController.swift in Sources */,
+				487C1C5027E4E1BB001E779F /* YMapInteractor.swift in Sources */,
 				4842B07227E41D0A00E6EAA2 /* MapKitInteractor.swift in Sources */,
 				4842B05F27E4018200E6EAA2 /* MapSearchButton.swift in Sources */,
 				4842B06427E40AFC00E6EAA2 /* MapSearchTextField.swift in Sources */,
-				487C1C7527E52A67001E779F /* YMapKitToolBar.swift in Sources */,
+				487C1C7527E52A67001E779F /* YMapToolBar.swift in Sources */,
 				4842B04027E3F4F400E6EAA2 /* MapKitViewController.swift in Sources */,
-				487C1C7127E5244E001E779F /* YMapKitRouteViewController.swift in Sources */,
+				487C1C7127E5244E001E779F /* YMapRouteViewController.swift in Sources */,
 				4842B03C27E3F4F400E6EAA2 /* AppDelegate.swift in Sources */,
 				4842B07527E41D1800E6EAA2 /* MapKitPresenter.swift in Sources */,
 				4842B03E27E3F4F400E6EAA2 /* SceneDelegate.swift in Sources */,
 				487C1C4D27E4E1AB001E779F /* YMapSearchTextField.swift in Sources */,
 				487C1C6C27E51D51001E779F /* YMapToolbarButton.swift in Sources */,
 				487C1C7927E5D87D001E779F /* VehicleType.swift in Sources */,
-				487C1C5627E4E1D3001E779F /* YMapKitAssembly.swift in Sources */,
+				487C1C5627E4E1D3001E779F /* YMapAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

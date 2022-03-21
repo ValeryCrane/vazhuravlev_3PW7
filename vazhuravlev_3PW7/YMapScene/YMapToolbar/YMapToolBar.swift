@@ -1,5 +1,5 @@
 //
-//  YMapKitToolBar.swift
+//  YMapToolBar.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 19.03.2022.
@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 
-protocol YMapKitDistanceDisplayLogic: AnyObject {
+protocol YMapDistanceDisplayLogic: AnyObject {
     func displayDistance(distance: String)
 }
 
-class YMapKitToolBar: UINavigationController {
-    init(delegate: YMapKitToolBarDisplayLogic) {
-        let searchView = YMapKitSearchViewController()
+class YMapToolBar: UINavigationController {
+    init(delegate: YMapToolBarDisplayLogic) {
+        let searchView = YMapSearchViewController()
         searchView.delegate = delegate
         super.init(rootViewController: searchView)
         self.navigationBar.backgroundColor = .white
@@ -26,10 +26,10 @@ class YMapKitToolBar: UINavigationController {
     }
 }
 
-// MARK: - YMapKitDistanceDisplayLogic impementation
-extension YMapKitToolBar: YMapKitDistanceDisplayLogic {
+// MARK: - YMapDistanceDisplayLogic impementation
+extension YMapToolBar: YMapDistanceDisplayLogic {
     func displayDistance(distance: String) {
-        if let top = topViewController as? YMapKitRouteViewController {
+        if let top = topViewController as? YMapRouteViewController {
             top.displayDistance(distance: distance)
         }
     }

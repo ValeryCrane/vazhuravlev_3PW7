@@ -1,5 +1,5 @@
 //
-//  YMapKitRouteViewController.swift
+//  YMapRouteViewController.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 19.03.2022.
@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol YMapKitVehicleQueryDelegate: AnyObject {
+protocol YMapVehicleQueryDelegate: AnyObject {
     func vehicleQuery(vehicle: VehicleType)         // Handles vehicle type change
 }
 
-class YMapKitRouteViewController: UIViewController {
-    public weak var delegate: YMapKitVehicleQueryDelegate!
+class YMapRouteViewController: UIViewController {
+    public weak var delegate: YMapVehicleQueryDelegate!
     
     private var transportChoice: UISegmentedControl?
     private var distanceLabel: UILabel?
@@ -103,7 +103,7 @@ class YMapKitRouteViewController: UIViewController {
 
 
 // MARK: - YMapKitDistanceDisplayLogic implementation
-extension YMapKitRouteViewController: YMapKitDistanceDisplayLogic {
+extension YMapRouteViewController: YMapDistanceDisplayLogic {
     func displayDistance(distance: String) {
         loadingIndicator?.stopAnimating()
         distanceLabel?.text = distance

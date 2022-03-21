@@ -1,5 +1,5 @@
 //
-//  YMapKitInteractor.swift
+//  YMapInteractor.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 18.03.2022.
@@ -9,13 +9,13 @@ import Foundation
 import CoreLocation
 import YandexMapsMobile
 
-protocol YMapKitBusinessLogic: AnyObject {
+protocol YMapBusinessLogic: AnyObject {
     // Fetches route for addresses and passes it to presenter.
     func fetchRoute(startAddress: String, endAddress: String, vehicle: VehicleType, requestId: UUID)
 }
 
-class YMapKitInteractor {
-    public var presenter: YMapKitPresentationLogic!
+class YMapInteractor {
+    public var presenter: YMapPresentationLogic!
     private var drivingSession: YMKDrivingSession?
     private var bicycleSession: YMKBicycleSession?
     private var pedestrianSession: YMKMasstransitSession?
@@ -110,8 +110,8 @@ class YMapKitInteractor {
 }
 
 
-// MARK: - MapKitBusinessLogic implementation
-extension YMapKitInteractor: YMapKitBusinessLogic {
+// MARK: - YMapBusinessLogic implementation
+extension YMapInteractor: YMapBusinessLogic {
     func fetchRoute(startAddress: String, endAddress: String, vehicle: VehicleType, requestId: UUID) {
         guard startAddress != endAddress else { return }
          
@@ -135,6 +135,7 @@ extension YMapKitInteractor: YMapKitBusinessLogic {
         }
         
         group.notify(queue: .global()) { [weak self] in
+            guard coordinates.count == 2 else { return }
             switch vehicle {
             case .Car:
                 self?.buildCarRoute(start: coordinates[0], finish: coordinates[1], requestId: requestId)

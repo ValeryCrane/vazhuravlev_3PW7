@@ -1,5 +1,5 @@
 //
-//  YMapKitSearchViewController.swift
+//  YMapSearchViewController.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 19.03.2022.
@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol YMapKitToolBarDisplayLogic: AnyObject {
+protocol YMapToolBarDisplayLogic: AnyObject {
     func handleSearchQuery(source: String, destination: String, vehicle: VehicleType)
     func clearQuery()
 }
 
-class YMapKitSearchViewController: UIViewController {
-    public weak var delegate: YMapKitToolBarDisplayLogic?
+class YMapSearchViewController: UIViewController {
+    public weak var delegate: YMapToolBarDisplayLogic?
     
     let startLocation = YMapSearchTextField(placeholder: "From")
     let endLocation = YMapSearchTextField(placeholder: "To")
@@ -98,7 +98,7 @@ class YMapKitSearchViewController: UIViewController {
     
     // MARK: - action functions
     @objc private func goButtonAction() {
-        let routeViewController = YMapKitRouteViewController()
+        let routeViewController = YMapRouteViewController()
         routeViewController.delegate = self
         self.navigationController?.pushViewController(routeViewController, animated: true)
     }
@@ -130,7 +130,7 @@ class YMapKitSearchViewController: UIViewController {
 }
 
 // MARK: - UITextFieldDelegate implementation
-extension YMapKitSearchViewController: UITextFieldDelegate {
+extension YMapSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == startLocation && !(startLocation.text ?? "").isEmpty {
@@ -145,8 +145,8 @@ extension YMapKitSearchViewController: UITextFieldDelegate {
 }
 
 
-// MARK: - YMapKitVehicleQueryDelegate implementation
-extension YMapKitSearchViewController: YMapKitVehicleQueryDelegate {
+// MARK: - YMapVehicleQueryDelegate implementation
+extension YMapSearchViewController: YMapVehicleQueryDelegate {
     func vehicleQuery(vehicle: VehicleType) {
         if let start = startLocation.text, let end = endLocation.text {
             self.delegate?.handleSearchQuery(source: start, destination: end, vehicle: vehicle)

@@ -13,3 +13,5 @@
 - Showing trip length in meters
 
 - Made it possible to chose trip type, bicycle, walking, car
+
+- Showing plus and minus buttons together with compass

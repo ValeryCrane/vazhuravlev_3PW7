@@ -1,5 +1,5 @@
 //
-//  YMapKitAssembly.swift
+//  YMapAssembly.swift
 //  vazhuravlev_3PW7
 //
 //  Created by Валерий Журавлев on 18.03.2022.
@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 // Assembles YMapKitScene
-class YMapKitAssembly {
+class YMapAssembly {
     func assemble() -> UIViewController {
-        let view = YMapKitViewController()
-        let interactor = YMapKitInteractor()
-        let presenter = YMapKitPresenter()
+        let view = YMapViewController()
+        let interactor = YMapInteractor()
+        let presenter = YMapPresenter()
         
         view.interactor = interactor
         interactor.presenter = presenter
