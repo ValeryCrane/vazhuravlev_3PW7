@@ -19,6 +19,7 @@ class YMapToolBar: UINavigationController {
         searchView.delegate = delegate
         super.init(rootViewController: searchView)
         self.navigationBar.backgroundColor = .white
+        self.view.backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
