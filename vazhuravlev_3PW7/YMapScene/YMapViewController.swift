@@ -260,6 +260,7 @@ extension YMapViewController: YMapToolBarDisplayLogic {
     }
     
     func clearQuery() {
+        self.currentRouteId = UUID()
         clearMap()
     }
 }
